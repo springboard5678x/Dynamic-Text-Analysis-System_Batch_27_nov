@@ -100,6 +100,29 @@ function App() {
 
   return (
     <>
+      {!showResults && (
+        <div className="fixed top-0 left-0 right-0 z-50">
+          <header className="bg-slate-900/40 backdrop-blur-xl border-b border-white/10 px-6 py-2">
+            <div className="max-w-7xl mx-auto flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h1 className="text-xl font-bold text-white">
+                    News <span className="text-red-500">Summarizer</span>
+                  </h1>
+                  <p className="text-xs text-gray-400">AI-Powered Text Analysis</p>
+                </div>
+              </div>
+            </div>
+          </header>
+        </div>
+      )}
+
+      {/* Header for Results Page */}
       {showResults && (
         <div className="fixed top-0 left-0 right-0 z-50">
           <nav className="navbar bg-slate-500/20 backdrop-blur-xl rounded-3xl border border-white/20 p-4 m-4 h-16 flex items-center justify-center">
@@ -112,7 +135,7 @@ function App() {
         </div>
       )}
 
-      <div className={`min-h-screen pb-12 px-4 flex items-center ${showResults ? 'pt-28' : 'pt-12'}`}>
+      <div className={`min-h-screen pb-12 px-4 flex items-center ${showResults ? 'pt-28' : 'pt-24'}`}>
         <div className="max-w-7xl mx-auto w-full">
           {!showResults ? (
             <>
@@ -165,7 +188,7 @@ function App() {
                               e.preventDefault()
                               handleClearFile()
                             }}
-                            className="text-white hover:text-red-400 transition ml-2 cursor-pointer border border-white/20 rounded-2xl px-2 py-1"
+                            className="text-white hover:text-red-400 transition ml-2 bg-black/50 cursor-pointer border border-white/20 rounded-2xl px-2 py-1"
                           >
                             Remove
                           </button>

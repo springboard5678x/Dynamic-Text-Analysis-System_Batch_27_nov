@@ -2,6 +2,20 @@
 
 A full-stack news analysis application with topic modeling, sentiment analysis, and AI summarization.
 
+## Screenshots
+
+### Landing Page
+![Landing Page](assets/landing.png)
+
+### Topic Analysis
+![Topic Analysis](assets/topicc.png)
+
+### Sentiment Analysis
+![Sentiment Analysis](assets/sentiment.png)
+
+### Summary View
+![Summary](assets/summaryy.png)
+
 ## Setup Instructions
 
 ### Backend (FastAPI)
