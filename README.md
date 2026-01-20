@@ -1,232 +1,103 @@
-# 🔍 InsightEngine  
-### Dynamic Text Analysis Platform for Job Reviews
+# NarrativeNexus – Dynamic AI Text Analysis Platform
 
-InsightEngine is an end-to-end **NLP-powered text analysis platform** that transforms unstructured job review data into meaningful insights.  
-The system allows users to upload datasets and explore **sentiment trends, key topics, word clouds, and abstractive summaries** through an interactive dashboard.
+## Overview
+NarrativeNexus is a Dynamic AI Text Analysis Platform designed to automate the analysis of large volumes of unstructured text.  
+The system performs topic modeling, sentiment analysis, and summarization, enabling users to extract meaningful insights efficiently without manual processing.
 
----
-## 📸 Application Screenshots
-
-### 🔹 Core User Flow
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="./screenshots/upload_page.png" width="220" />
-      <br />
-      <b>Upload Page</b>
-    </td>
-    <td align="center">
-      <img src="./screenshots/insights_1.png" width="220" />
-      <br />
-      <b>Insights Dashboard</b>
-    </td>
-    <td align="center">
-      <img src="./screenshots/insight_generation.png" width="220" />
-      <br />
-      <b>Insight Generation</b>
-    </td>
-  </tr>
-</table>
+This project demonstrates the practical application of Natural Language Processing (NLP) and Machine Learning techniques through an interactive web-based interface.
 
 ---
 
-### 🔹 NLP Analysis Outputs
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="./screenshots/word_cloud.png" width="220" />
-      <br />
-      <b>Word Cloud</b>
-    </td>
-    <td align="center">
-      <img src="./screenshots/summaries.png" width="220" />
-      <br />
-      <b>Abstractive Summaries</b>
-    </td>
-    <td align="center">
-      <img src="./screenshots/review_snippets.png" width="220" />
-      <br />
-      <b>Review Snippets</b>
-    </td>
-  </tr>
-</table>
+## Target Audience
+- Students learning NLP and Machine Learning  
+- Researchers analyzing textual data  
+- Analysts working with feedback, reviews, or documents  
+- Organizations seeking automated text insights  
 
 ---
 
-### 🔹 Additional Features
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="./screenshots/download_report.png" width="220" />
-      <br />
-      <b>Download Report</b>
-    </td>
-    <td align="center">
-      <img src="./screenshots/light_mode.png" width="220" />
-      <br />
-      <b>Light Mode UI</b>
-    </td>
-  </tr>
-</table>
+## Key Features
+- Text preprocessing and cleaning  
+- TF-IDF vectorization  
+- NMF-based topic modeling  
+- Dominant topic and keyword extraction  
+- Extractive and abstractive text summarization  
+- Sentiment analysis (Positive / Negative / Neutral)  
+- Interactive visualization dashboard (charts, word clouds, topic distributions)  
 
 ---
 
-## 🚀 Features
-
-- 📂 Upload **CSV, JSON, or PDF** files
-- 😊 **Sentiment Analysis** (Overall Positive / Negative Insight)
-- 🧠 **Topic Modeling** to identify dominant discussion themes
-- ☁️ **Word Cloud** for primary topic visualization
-- 📝 **Abstractive Text Summarization** using Transformer models
-- 📊 Interactive dashboard for insights exploration
-
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-- HTML
-- CSS
-- JavaScript
-
-### Backend
-- Flask (Python)
+## Tech Stack
 
 ### Machine Learning & NLP
-- Scikit-learn
-- NLP Pipelines
-- **DistilBART** for abstractive summarization
-- CountVectorizer
-- Pre-trained & custom-trained models
+- Python  
+- scikit-learn  
+- NLTK  
+- NumPy  
+
+### Frontend
+- React  
+- Vite  
+- TypeScript  
+- Tailwind CSS  
+
+### Tools & Platforms
+- Google Colab (model training & experimentation)  
+- GitHub (version control)  
 
 ---
 
-## 📁 Project Structure
-```
-InsightEngine/
-│
-├── backend/
-│   └── app.py
-│
-├── frontend/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── models/
-│   ├── sentiment_pipeline_v2.pkl
-│   ├── topic_modeling.pkl
-│   └── count_vectorizer.pkl
-│
-├── dataset/
-│   ├── glassdoor_reviews.csv
-│   └── glassdoor_final_labeled.csv
-│
-├── samples/
-│   ├── reviews.csv
-│   ├── sample_reviews.json
-│   └── sample_reviews.pdf
-│
-├── notebook/
-│   └── Glassdoor_review.ipynb
-│
-├── screenshots/
-│   ├── upload_page.png
-│   ├── insights_1.png
-│   ├── insight_generation.png
-│   ├── word_cloud.png
-│   ├── summaries.png
-│   ├── review_snippets.png
-│   ├── download_report.png
-│   └── light_mode.png
-│
-├── docs/
-│   └── AI Narrative Nexus.pdf
-│
-├── requirements.txt
-├── README.md
-└── .gitignore
-```
+## Project Structure
+<image>
 
 ---
 
-## 📊 Dataset Used
-
-- **Glassdoor Job Reviews Dataset**
-- Used for:
-  - Sentiment classification
-  - Topic modeling
-  - Text summarization
-
-> Dataset used strictly for educational and research purposes.
+## Dataset
+Dataset used for training and experimentation:  
+**Google Drive Link:** https://drive.google.com/file/d/1sel840eH7BWPAHd5WViN9g4u07Lzw519/view?usp=sharing
 
 ---
 
-## ⚙️ How It Works
+## How to Run the Web Application
 
-1. User uploads a dataset (CSV / JSON / PDF)
-2. Backend preprocesses text data
-3. ML models analyze:
-   - Overall sentiment
-   - Key discussion topics
-4. Results are visualized via:
-   - Word clouds
-   - Topic highlights
-   - Abstractive summaries
+### Prerequisites
+- Node.js (v18 or above)
+- npm
 
----
+### Steps
+## Run the Website Locally
 
-## ▶️ Running the Project Locally
+1. Clone the repository
+2. Navigate to the website folder
+   cd website
 
-### 1. Clone the repository
-```
-git clone https://github.com/your-username/InsightEngine.git
-cd InsightEngine
-```
+3. Install dependencies
+   npm install
 
-### 2. Create virtual environment & install dependencies
-```
-pip install -r requirements.txt
-```
-### 3. Run Flask server
-```
-python backend/app.py
-```
+4. Start the development server
+   npm run dev
 
-### 4. Open frontend
-Open `frontend/index.html` in your web browser
+5. Open browser at:
+   http://localhost:5173
 
 ---
 
-## 🧪 Model Training
-
-- Data preprocessing, feature engineering, and model training were performed using Jupyter Notebook.
-- The notebook is provided for **experimentation, learning, and transparency**.
-- The application itself uses **pre-trained and serialized models** stored in the `models/` directory.
----
-
-## 🚧 Deployment Status
-
-- ❌ Not deployed yet
-- 📌 Planned deployment using cloud platforms (future scope)
+## Demo Workflow
+1. Upload a TXT/CSV file or enter raw text manually  
+2. System preprocesses and cleans the text  
+3. Topic modeling is performed using TF-IDF and NMF  
+4. Summarization and sentiment analysis are applied  
+5. Results are visualized through interactive charts and dashboards  
 
 ---
-## 🌱 Future Enhancements
-- Live deployment (Render / AWS / GCP)
-- User authentication
-- Multi-topic comparison
+
+## Notes
+- Model training and experimentation were conducted using Google Colab.  
+- Frontend UI was scaffolded using AI-assisted tools and customized to integrate project-specific workflows and visualizations.  
+- This project is intended for academic and demonstration purposes.
 
 ---
-## 👩‍💻 Author
 
-Shruti Bhale
-B.Tech CSE | NLP & ML Enthusiast
-Infosys Springboard Project
+## License
+This project is licensed under the MIT License.
 
----
-## 📜 License
-
-This project is for educational and research purposes.

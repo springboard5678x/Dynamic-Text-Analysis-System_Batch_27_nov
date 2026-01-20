@@ -1,0 +1,134 @@
+{
+  "project": "NarrativeNexus \u2013 Dynamic Text Analysis Platform",
+  "note": "Generated from /models pickles using generate_demo_outputs.py",
+  "topics": [
+    {
+      "id": 0,
+      "name": "Sports",
+      "keyTerms": [
+        "recent",
+        "economic",
+        "policy",
+        "announcement",
+        "raised",
+        "serious",
+        "concerns",
+        "among"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Politics & Government",
+      "keyTerms": [
+        "raised",
+        "serious",
+        "concerns",
+        "among",
+        "industry",
+        "experts",
+        "small",
+        "business"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Technology & Digital Media",
+      "keyTerms": [
+        "business",
+        "owners",
+        "rising",
+        "inflation",
+        "increasing",
+        "interest",
+        "rates",
+        "reduced"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Movies & Entertainment",
+      "keyTerms": [
+        "rates",
+        "reduced",
+        "government",
+        "subsidies",
+        "placed",
+        "additional",
+        "financial",
+        "pressure"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Economy & Business",
+      "keyTerms": [
+        "recent",
+        "economic",
+        "policy",
+        "announcement",
+        "raised",
+        "serious",
+        "concerns",
+        "among"
+      ]
+    }
+  ],
+  "sentimentLexicon": {
+    "positive": [
+      "good",
+      "great",
+      "excellent",
+      "happy",
+      "success",
+      "benefit",
+      "improve",
+      "positive",
+      "growth",
+      "opportunity",
+      "advantage",
+      "progress",
+      "achievement",
+      "prosperous",
+      "thriving",
+      "optimistic",
+      "hopeful",
+      "confident"
+    ],
+    "negative": [
+      "bad",
+      "terrible",
+      "sad",
+      "problem",
+      "fail",
+      "risk",
+      "issue",
+      "concern",
+      "concerns",
+      "serious",
+      "difficult",
+      "uncertain",
+      "uncertainty",
+      "pessimistic",
+      "decline",
+      "struggling",
+      "pressure",
+      "crisis",
+      "challenge",
+      "worry",
+      "anxious",
+      "fear",
+      "criticized",
+      "criticism",
+      "hesitant",
+      "reduced"
+    ]
+  },
+  "sampleTextTopicDistribution": [
+    0.1781758190161704,
+    0.22266868500709233,
+    0.22130473041946006,
+    0.16439132104781892,
+    0.21345944450945822
+  ],
+  "usedCsrMatrix": true
+}
