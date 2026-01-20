@@ -1,0 +1,34 @@
+# --- Python & Flask ---
+__pycache__/
+*.py[cod]
+*$py.class
+instance/
+.webassets-cache
+
+# --- Virtual Environments ---
+venv/
+env/
+.venv/
+.env
+
+# --- Jupyter Notebooks (If you use them) ---
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# --- OS System Files ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# --- Editor / IDE Settings ---
+.vscode/
+.idea/
+
+# --- Project Specifics ---
+# Ignore the main large dataset (Keep 'samples' for testing)
+dataset/
+
+# --- Large Models (Optional) ---
+# GitHub has a 100MB file limit. If your models are larger than that,
+# uncomment the lines below to stop them from uploading.
+# models/*.pkl

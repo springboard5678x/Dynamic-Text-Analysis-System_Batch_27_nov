@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InsightEngine - Employee Voice Analytics</title>
+  <meta name="description" content="AI-powered employee feedback analysis dashboard for HR and leadership">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ie-ambient-light"></div>
+
+  <div class="ie-container" id="app-container">
+    <header class="ie-header">
+      <div class="ie-header-content">
+        <div class="ie-header-left">
+          <h1 class="ie-title">
+            <span class="ie-title-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </span>
+            InsightEngine
+          </h1>
+          <p class="ie-subtitle">AI-powered employee feedback analytics</p>
+        </div>
+
+        <button id="download-btn" class="ie-btn-secondary" style="margin-left: auto; margin-right: 12px; display: none; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Report</span>
+        </button>
+
+        <button class="ie-theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <div class="ie-toggle-stars">
+            <span class="ie-star"></span>
+            <span class="ie-star"></span>
+            <span class="ie-star"></span>
+            <span class="ie-star"></span>
+          </div>
+          <div class="ie-toggle-thumb">
+            <svg class="ie-toggle-icon ie-sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="ie-toggle-icon ie-moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </header>
+
+    <main class="ie-main" id="main-content">
+      
+      <div class="ie-upload-container" id="upload-state">
+        <div class="ie-upload-card glass-panel">
+          <div class="ie-upload-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+          </div>
+          <h2 class="ie-upload-title">Upload Employee Feedback</h2>
+          <p class="ie-upload-description">Analyze employee feedback data with AI-powered insights</p>
+          
+          <div class="ie-dropzone" id="dropzone" tabindex="0" role="button" aria-label="Upload file dropzone">
+            <div class="ie-dropzone-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="12" y1="18" x2="12" y2="12"></line>
+                <line x1="9" y1="15" x2="15" y2="15"></line>
+              </svg>
+            </div>
+            <p class="ie-dropzone-text">Drag & Drop employee feedback files here, or click to browse</p>
+            <p class="ie-dropzone-hint">Supports .pdf, .csv, .json</p>
+          </div>
+          
+          <input type="file" id="file-input" accept=".pdf,.csv,.json" style="display: none;">
+          
+          <div class="ie-file-selected" id="file-selected" style="display: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span id="file-name"></span>
+          </div>
+          
+          <button class="ie-analyze-btn" id="analyze-btn" disabled>Analyze Feedback</button>
+        </div>
+      </div>
+
+      <div class="ie-loading-container" id="loading-state" style="display: none;">
+        <div class="ie-loading-card glass-panel">
+          <div class="ie-spinner"></div>
+          <div class="ie-loading-icons">
+            <div class="ie-loading-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <div class="ie-loading-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <div class="ie-loading-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+          </div>
+          <h3 class="ie-loading-text">Generating insights…</h3>
+          <p class="ie-loading-subtext">Analyzing sentiment and extracting key topics</p>
+        </div>
+      </div>
+
+      <div class="ie-dashboard" id="dashboard-state" style="display: none;">
+        
+        <div class="ie-section-anchor">
+          <div class="ie-section-anchor-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <span class="ie-section-anchor-title">Key Metrics</span>
+          <div class="ie-section-anchor-line"></div>
+        </div>
+
+        <div class="ie-metrics-row">
+          <div class="ie-metric-card blue-accent glass-panel fade-in-up delay-1">
+            <div class="ie-metric-icon blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <div class="ie-metric-content">
+              <p class="ie-metric-label">Total Reviews Analyzed</p>
+              <p class="ie-metric-value" id="total-reviews-val">0</p>
+            </div>
+          </div>
+          <div class="ie-metric-card green-accent glass-panel fade-in-up delay-2">
+            <div class="ie-metric-icon green">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="ie-metric-content">
+              <p class="ie-metric-label">Overall Positive Sentiment</p>
+              <p class="ie-metric-value" id="positive-pct-val">0%</p>
+            </div>
+          </div>
+          <div class="ie-metric-card amber-accent glass-panel fade-in-up delay-3">
+            <div class="ie-metric-icon amber">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <div class="ie-metric-content">
+              <p class="ie-metric-label">Primary Topic Identified</p>
+              <p class="ie-metric-value" id="top-topic-val">-</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ie-section-anchor" style="margin-top: 32px;">
+          <div class="ie-section-anchor-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+          </div>
+          <span class="ie-section-anchor-title">Analytics Overview</span>
+          <div class="ie-section-anchor-line"></div>
+        </div>
+
+        <div class="ie-charts-row">
+          <div class="ie-chart-card glass-panel fade-in-up delay-4">
+            <div class="ie-chart-header">
+              <div class="ie-chart-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                  <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                </svg>
+              </div>
+              <h3 class="ie-chart-title">Sentiment Pulse</h3>
+            </div>
+            <div class="ie-donut-container">
+              <div class="ie-donut-wrapper">
+                <div class="ie-donut-chart"></div>
+              </div>
+              <div class="ie-donut-legend">
+                <div class="ie-legend-item">
+                  <span class="ie-legend-dot positive"></span>
+                  <span id="legend-pos-label">Positive (0%)</span> </div>
+                <div class="ie-legend-item">
+                  <span class="ie-legend-dot neutral"></span>
+                  <span id="legend-neu-label">Neutral (0%)</span> </div>
+                <div class="ie-legend-item">
+                  <span class="ie-legend-dot negative"></span>
+                  <span id="legend-neg-label">Negative (0%)</span> </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ie-chart-card glass-panel fade-in-up delay-5">
+            <div class="ie-chart-header">
+              <div class="ie-chart-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+              </div>
+              <h3 class="ie-chart-title">Hot Topics</h3>
+            </div>
+            <div class="ie-bar-chart">
+              <div class="ie-bar-item">
+                <span class="ie-bar-label">Work-Life Balance & Comp</span>
+                <div class="ie-bar-track">
+                  <div class="ie-bar-fill"></div>
+                </div>
+                <span class="ie-bar-value">0%</span>
+              </div>
+              <div class="ie-bar-item">
+                <span class="ie-bar-label">Career Growth & Culture</span>
+                <div class="ie-bar-track">
+                  <div class="ie-bar-fill"></div>
+                </div>
+                <span class="ie-bar-value">0%</span>
+              </div>
+              <div class="ie-bar-item">
+                <span class="ie-bar-label">Team & Office Environment</span>
+                <div class="ie-bar-track">
+                  <div class="ie-bar-fill"></div>
+                </div>
+                <span class="ie-bar-value">0%</span>
+              </div>
+              <div class="ie-bar-item">
+                <span class="ie-bar-label">Business Strategy & Ops</span>
+                <div class="ie-bar-track">
+                  <div class="ie-bar-fill"></div>
+                </div>
+                <span class="ie-bar-value">0%</span>
+              </div>
+              <div class="ie-bar-item">
+                <span class="ie-bar-label">Management & Daily Ops</span>
+                <div class="ie-bar-track">
+                  <div class="ie-bar-fill"></div>
+                </div>
+                <span class="ie-bar-value">0%</span>
+              </div>
+            </div>
+            <div class="ie-bar-axis">
+              <span>0%</span>
+              <span>25%</span>
+              <span>50%</span>
+              <span>75%</span>
+              <span>100%</span>
+            </div>
+          </div>
+
+          <div class="ie-chart-card glass-panel fade-in-up delay-6">
+            <div class="ie-chart-header">
+              <div class="ie-chart-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="3" y1="15" x2="21" y2="15"></line>
+                </svg>
+              </div>
+              <h3 class="ie-chart-title">Topic vs. Sentiment</h3>
+            </div>
+            <div class="ie-stacked-chart" style="display: flex; flex-direction: column; gap: 18px; margin-top: 15px;">
+              
+              <div class="ie-stacked-item">
+                <span class="ie-stacked-label">Work-Life Balance & Comp</span>
+                <div class="ie-stacked-track" id="topic-0-stacked" style="height: 12px; background: rgba(255,255,255,0.05); border-radius: 6px; display: flex; overflow: hidden;"></div>
+              </div>
+
+              <div class="ie-stacked-item">
+                <span class="ie-stacked-label">Career Growth & Culture</span>
+                <div class="ie-stacked-track" id="topic-1-stacked" style="height: 12px; background: rgba(255,255,255,0.05); border-radius: 6px; display: flex; overflow: hidden;"></div>
+              </div>
+
+              <div class="ie-stacked-item">
+                <span class="ie-stacked-label">Team & Office Environment</span>
+                <div class="ie-stacked-track" id="topic-2-stacked" style="height: 12px; background: rgba(255,255,255,0.05); border-radius: 6px; display: flex; overflow: hidden;"></div>
+              </div>
+
+              <div class="ie-stacked-item">
+                <span class="ie-stacked-label">Business Strategy & Ops</span>
+                <div class="ie-stacked-track" id="topic-3-stacked" style="height: 12px; background: rgba(255,255,255,0.05); border-radius: 6px; display: flex; overflow: hidden;"></div>
+              </div>
+
+              <div class="ie-stacked-item">
+                <span class="ie-stacked-label">Management & Daily Ops</span>
+                <div class="ie-stacked-track" id="topic-4-stacked" style="height: 12px; background: rgba(255,255,255,0.05); border-radius: 6px; display: flex; overflow: hidden;"></div>
+              </div>
+
+            </div>
+            <div class="ie-stacked-legend">
+              <div class="ie-legend-item">
+                <span class="ie-legend-dot positive"></span>
+                <span>Positive</span>
+              </div>
+              <div class="ie-legend-item">
+                <span class="ie-legend-dot neutral"></span>
+                <span>Neutral</span>
+              </div>
+              <div class="ie-legend-item">
+                <span class="ie-legend-dot negative"></span>
+                <span>Negative</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="ie-section-anchor" style="margin-top: 40px;">
+            <div class="ie-section-anchor-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 12c-4.4 0-8 3.6-8 8h16c0-4.4-3.6-8-8-8zm0 0c0-4.4 3.6-8 8-8 4.4 0 8 3.6 8 8m-8-8c0-4.4-3.6-8-8-8-4.4 0-8 3.6-8 8"></path>
+            </svg>
+            </div>
+            <div class="ie-section-anchor-title">Dominant Topic Analysis</div>
+            <div class="ie-section-anchor-line"></div>
+        </div>
+
+        <div class="glass-panel" style="padding: 2rem; margin-bottom: 2rem; text-align: center;">
+            <h3 style="margin-bottom: 1rem; color: var(--ie-text-muted); font-size: 0.9rem; text-transform: uppercase;">
+                Key themes in <span id="wc-topic-name" style="color: var(--ie-primary); font-weight: 700;">...</span>
+            </h3>
+            <img id="wordcloud-img" src="" alt="Topic Word Cloud" style="max-width: 100%; height: auto; border-radius: 12px; display: none; margin: 0 auto; box-shadow: var(--ie-shadow-card);">
+            <p id="wc-placeholder" style="color: var(--ie-text-muted); font-style: italic;">Processing word patterns...</p>
+       </div>
+
+
+        <div class="ie-summaries-section fade-in-up delay-7">
+          <div class="ie-section-anchor" style="margin-bottom: 20px;">
+            <div class="ie-section-anchor-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <span class="ie-section-anchor-title">Executive Summaries</span>
+            <div class="ie-section-anchor-line"></div>
+          </div>
+
+          <div class="ie-accordion" id="accordion">
+            <div class="ie-accordion-item glass-panel">
+              <button class="ie-accordion-header" data-target="summary-0">
+                <div class="ie-accordion-header-content">
+                  <h4 class="ie-accordion-title">Work-Life Balance & Comp</h4>
+                </div>
+                <svg class="ie-accordion-chevron open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="ie-accordion-content open" id="summary-0">
+                <div class="ie-pros-cons"><p style="color:var(--ie-text-muted); padding:10px;">Waiting for analysis...</p></div>
+              </div>
+            </div>
+
+            <div class="ie-accordion-item glass-panel">
+              <button class="ie-accordion-header" data-target="summary-1">
+                <div class="ie-accordion-header-content">
+                  <h4 class="ie-accordion-title">Career Growth & Culture</h4>
+                </div>
+                <svg class="ie-accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="ie-accordion-content" id="summary-1">
+                <div class="ie-pros-cons"><p style="color:var(--ie-text-muted); padding:10px;">Waiting for analysis...</p></div>
+              </div>
+            </div>
+
+            <div class="ie-accordion-item glass-panel">
+              <button class="ie-accordion-header" data-target="summary-2">
+                <div class="ie-accordion-header-content">
+                  <h4 class="ie-accordion-title">Team & Office Environment</h4>
+                </div>
+                <svg class="ie-accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="ie-accordion-content" id="summary-2">
+                <div class="ie-pros-cons"><p style="color:var(--ie-text-muted); padding:10px;">Waiting for analysis...</p></div>
+              </div>
+            </div>
+
+            <div class="ie-accordion-item glass-panel">
+                <button class="ie-accordion-header" data-target="summary-3">
+                  <div class="ie-accordion-header-content">
+                    <h4 class="ie-accordion-title">Business Strategy & Ops</h4>
+                  </div>
+                  <svg class="ie-accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="ie-accordion-content" id="summary-3">
+                  <div class="ie-pros-cons"><p style="color:var(--ie-text-muted); padding:10px;">Waiting for analysis...</p></div>
+                </div>
+            </div>
+
+            <div class="ie-accordion-item glass-panel">
+                <button class="ie-accordion-header" data-target="summary-4">
+                  <div class="ie-accordion-header-content">
+                    <h4 class="ie-accordion-title">Management & Daily Ops</h4>
+                  </div>
+                  <svg class="ie-accordion-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="ie-accordion-content" id="summary-4">
+                  <div class="ie-pros-cons"><p style="color:var(--ie-text-muted); padding:10px;">Waiting for analysis...</p></div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ie-table-section fade-in-up delay-8">
+            <div class="ie-section-anchor" style="margin-bottom: 20px;">
+            <div class="ie-section-anchor-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <span class="ie-section-anchor-title">Detailed Data View</span>
+            <div class="ie-section-anchor-line"></div>
+            </div>
+
+            <div class="ie-table-card glass-panel">
+            <div class="ie-table-header">
+                <div class="ie-table-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+                </div>
+                <h3 class="ie-table-title">Review Snippets</h3>
+            </div>
+
+            <div class="ie-table-container">
+                <table class="ie-table">
+                <thead>
+                    <tr>
+                    <th style="width: 55%;">Review Snippet</th>
+                    <th style="width: 25%;">Detected Topic</th>
+                    <th style="width: 20%;">Sentiment Label</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="ie-pagination">
+                <span class="ie-pagination-info" id="pagination-info">No reviews yet</span>
+                <div class="ie-pagination-controls">
+                <button class="ie-pagination-btn" id="prev-btn" disabled>
+                    <span>Previous</span>
+                </button>
+                <button class="ie-pagination-btn" id="next-btn" disabled>
+                    <span>Next</span>
+                </button>
+                </div>
+            </div>
+            </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="ie-footer">
+      <div class="ie-footer-content">
+        <p class="ie-footer-text">InsightEngine © 2026</p>
+        <span class="ie-footer-divider"></span>
+        <p class="ie-footer-text">Internal Analytics Dashboard</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

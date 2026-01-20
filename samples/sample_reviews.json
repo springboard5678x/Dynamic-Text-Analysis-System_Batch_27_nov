@@ -1,0 +1,26 @@
+[
+    {
+        "review_id": 101,
+        "pros": "The office location is perfect, right in the city center. Free coffee and snacks are a nice touch.",
+        "cons": "The workload is overwhelming and deadlines are unrealistic. No work-life balance.",
+        "rating": 2
+    },
+    {
+        "review_id": 102,
+        "pros": "Salary is very competitive and the bonus structure is transparent. Good healthcare benefits.",
+        "cons": "Internal politics make it hard to get projects approved. Upper management is disconnected.",
+        "rating": 3
+    },
+    {
+        "review_id": 103,
+        "pros": "I love my team! Everyone is super supportive and we collaborate well.",
+        "cons": "The legacy code base is a nightmare to work with. We need better developer tools.",
+        "rating": 4
+    },
+    {
+        "review_id": 104,
+        "pros": "Great opportunities for learning and development. They pay for certifications.",
+        "cons": "No remote work options allowed. Strict 9-to-5 culture.",
+        "rating": 3
+    }
+]
