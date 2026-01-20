@@ -48,7 +48,8 @@ This project demonstrates the practical application of Natural Language Processi
 ---
 
 ## Project Structure
-<image>
+<img width="934" height="642" alt="image" src="https://github.com/user-attachments/assets/510590da-f207-4325-a99b-6b6b65471406" />
+
 
 ---
 
