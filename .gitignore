@@ -1,0 +1,37 @@
+
+---
+
+### 📄 .gitignore
+```gitignore
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environments
+.env
+.venv/
+venv/
+env/
+
+# Streamlit & cache
+.streamlit/
+.cache/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Models & artifacts (large files)
+saved_models/
+*.gensim
+*.pkl
+
+# Generated assets & reports
+text_analysis_platform/assets/*.png
+text_analysis_platform/assets/analysis_report.docx
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
