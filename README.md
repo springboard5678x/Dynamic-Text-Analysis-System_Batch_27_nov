@@ -1,96 +1,106 @@
-# 🍽️ Food Review Analysis Platform
-A dynamic Streamlit-based text analysis system that allows users to upload or paste reviews, then performs:
-- 📊 Sentiment Analysis (positive/negative with charts)
-- ☁️ Topic Modeling (dominant keywords + wordcloud)
-- 📝 Summarization (abstractive summary of the review)
-- 📄 One‑click DOCX Report (mirrors UI visuals)
+# AI Narrative Nexus
+# Movie Review Intelligence System
 
+AI Narrative Nexus is a modern AI-powered movie review analysis platform that transforms raw text or documents into actionable insights using Natural Language Processing and Machine Learning.
+It provides sentiment analysis, topic modeling, summarization, and visual analytics through a sleek, production-grade user interface.
 
-## 🚀 Features
-- Upload `.txt`, `.csv`, `.docx` files or paste text directly
-- Sentiment analysis with **gauge + bar chart (with % labels)**
-- Dominant topic keywords with **wordcloud visualization**
-- Abstractive summary using transformer models
-- Insights + recommendations generated automatically
-- Downloadable DOCX report (summary, sentiment chart, wordcloud, dominant keywords, insights, recommendations)
+# ✨ Features
 
----
-**UI Overview**
-![UI Overview](text_analysis_platform/assets/ui_overview.png)
-**Sentiment Analysis**
-![Sentiment Analysis](text_analysis_platform/assets/sentiment_ui.png)
-**Topic modeling**
-![Topic Modeling](text_analysis_platform/assets/topic_modeling_ui.png)
-**Summary and Insights**
-![Summary and Insights](text_analysis_platform/assets/summary_insights_ui.png)
+* 🧠 AI Sentiment Analysis : Accurately classifies reviews as Positive, Negative, or Neutral with confidence scores.
 
-## 📖 Usage
-- Upload a file or paste text in the input box.
-- Click 🚀 Analyze Text.
-- Explore results in tabs:
-- ❤️ Sentiment Analysis
-- ☁️ Topic Analysis
-- 📝 Summary & Insights
-- 📄 Report
-- Download the DOCX report.
+* 📄 Text & File Analysis : Supports both direct text input and PDF/DOC/DOCX uploads.
 
----           
+* 📝 Automatic Review Summarization : Generates concise summaries from long reviews.
 
-## 📂 Project Structure
+* 🧩 Topic Modeling & Breakdown : Identifies key themes and dominant topics within reviews.
 
-```text
-text_analysis_platform/
-├── app.py                     # Main Streamlit dashboard
-├── reporting.py         
-├── summarizer.py              # NLP Summarization models     
-├── validation.py              # Input data validation
-├── sentiment_analysis.ipynb
-├── assets/                    # Images for documentation
-├── requirements.txt           # Project dependencies
-└── topic_modeling.ipynb    
-```   
-    
+* ☁️ Word Cloud Visualization : Highlights frequently occurring terms in an intuitive visual format.
 
-# 🛠️ Installation & Setup
-Follow these steps to run the project locally:
+* 📊 Word Frequency Bar Chart: Quantitative breakdown of important words.
 
-### 1. Clone the repository
-```bash
-git clone [https://github.com/springboard5678x/Dynamic-Text-Analysis-System_Batch_27_nov.git](https://github.com/springboard5678x/Dynamic-Text-Analysis-System_Batch_27_nov.git)
-cd Dynamic-Text-Analysis-System_Batch_27_nov
-```
-2. Install dependencies
-```bash
+* 🎨 Modern Glassmorphism UI : Premium design with smooth animations and responsive layout.
+
+# 🛠️ Tech Stack
+## Frontend
+
+* React.js
+
+* CSS (Glassmorphism + Animations)
+
+* Fetch API
+
+## Backend
+
+* FastAPI
+
+* Python
+
+* Uvicorn
+
+* python-multipart (for file uploads)
+
+## AI / NLP
+
+* Transformer-based sentiment models
+
+* Topic modeling
+
+* Text preprocessing & analysis
+<pre>
+project-root/
+├── backend/
+│   ├── app.py
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── components/
+│   │       ├── WordCloudView.jsx
+│   │       └── WordFrequencyBar.jsx
+│   │
+│   ├── package.json
+│   └── README.md
+│
+└── README.md
+</pre>
+
+# 🚀 Getting Started
+## 1️⃣ Clone the Repository
+git clone : https://github.com/chetna3110/ai-narrative-nexus.git
+
+cd ai-narrative-nexus
+
+## 2️⃣ Backend Setup
+cd backend
+
 pip install -r requirements.txt
-```
-3. Download NLP Models
-```bash
-# Download spaCy model
-python -m spacy download en_core_web_sm
-# Download nltk data
-python -c "import nltk; nltk.download('stopwords')"
-```
 
-▶️ Run the App
-Launch the dashboard using Streamlit:
-```bash
-streamlit run app.py
-```
-## 🤝 Contributing
-1. Fork the Project.
-2. Create a Feature Branch:
-```bash
-git checkout -b feature/AmazingFeature
-```
-3. Commit your Changes:
-```bash
-git commit -m 'Add some AmazingFeature'
-```
-4. Push to the Branch:
-```bash
-git push origin feature/AmazingFeature
-```
-5. Open a Pull Request.
+uvicorn app:app --reload
 
-## 📝 License
-This project is licensed under the MIT License — see the LICENSE file for details.
+
+Backend will run at: http://127.0.0.1:8000
+
+Swagger Docs: http://127.0.0.1:8000/docs
+
+## 3️⃣ Frontend Setup
+cd frontend
+
+npm install
+
+npm run dev
+
+
+Frontend will run at: http://localhost:5173
+
+## ✨ AI Review Analysis Dashboard 
+<p>
+<img width="1893" height="957" alt="Screenshot 2026-01-21 175704" src="https://github.com/user-attachments/assets/a3e64333-e527-4086-94d5-b30849c7eca8"width="400" />
+<img width="1903" height="915" alt="Screenshot 2026-01-21 175715" src="https://github.com/user-attachments/assets/e4ce1664-0e1c-4690-96fa-dc994a61f712"width="400" />
+</p>
+
+<p>
+<img width="789" height="660" alt="Screenshot 2026-01-21 175734" src="https://github.com/user-attachments/assets/502a81a9-7d86-4a70-a083-3c98d6f762a4" width="400"/>
+<img width="843" height="632" alt="Screenshot 2026-01-21 175725" src="https://github.com/user-attachments/assets/eb849bd7-88b6-45f0-8d93-c6570651aa0a" width="400" />
+</p>
