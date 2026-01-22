@@ -112,7 +112,7 @@ function App() {
                 </div>
                 <div>
                   <h1 className="text-xl font-bold text-white">
-                    News <span className="text-red-500">Summarizer</span>
+                    News <span className="text-red-500">Snap</span>
                   </h1>
                   <p className="text-xs text-gray-400">AI-Powered Text Analysis</p>
                 </div>
