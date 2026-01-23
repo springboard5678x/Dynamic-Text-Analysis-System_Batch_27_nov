@@ -1,96 +1,150 @@
-# 🍽️ Food Review Analysis Platform
-A dynamic Streamlit-based text analysis system that allows users to upload or paste reviews, then performs:
-- 📊 Sentiment Analysis (positive/negative with charts)
-- ☁️ Topic Modeling (dominant keywords + wordcloud)
-- 📝 Summarization (abstractive summary of the review)
-- 📄 One‑click DOCX Report (mirrors UI visuals)
+<div align="center">
 
+# 🧠 Recreative AI
+### Next-Gen AI Text Analysis & Visualization Platform
 
-## 🚀 Features
-- Upload `.txt`, `.csv`, `.docx` files or paste text directly
-- Sentiment analysis with **gauge + bar chart (with % labels)**
-- Dominant topic keywords with **wordcloud visualization**
-- Abstractive summary using transformer models
-- Insights + recommendations generated automatically
-- Downloadable DOCX report (summary, sentiment chart, wordcloud, dominant keywords, insights, recommendations)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.109-009688)](https://fastapi.tiangolo.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue)](https://www.typescriptlang.org/)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB)](https://www.python.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC)](https://tailwindcss.com/)
+
+[**View Portfolio**](https://debrajmistry.vercel.app/)
+</div>
 
 ---
-**UI Overview**
-![UI Overview](text_analysis_platform/assets/ui_overview.png)
-**Sentiment Analysis**
-![Sentiment Analysis](text_analysis_platform/assets/sentiment_ui.png)
-**Topic modeling**
-![Topic Modeling](text_analysis_platform/assets/topic_modeling_ui.png)
-**Summary and Insights**
-![Summary and Insights](text_analysis_platform/assets/summary_insights_ui.png)
 
-## 📖 Usage
-- Upload a file or paste text in the input box.
-- Click 🚀 Analyze Text.
-- Explore results in tabs:
-- ❤️ Sentiment Analysis
-- ☁️ Topic Analysis
-- 📝 Summary & Insights
-- 📄 Report
-- Download the DOCX report.
+## 🚀 Overview
 
----           
+**Recreative AI** is a state-of-the-art text analysis platform designed to transform raw text into actionable insights. Leveraging powerful Natural Language Processing (NLP) models, it provides deep analysis including sentiment detection, key phrase extraction, summarization, and interactive 3D visualizations.
 
-## 📂 Project Structure
+Whether you are a data scientist, content creator, or business analyst, Recreative AI offers a futuristic and intuitive dashboard to explore your textual data like never before.
 
-```text
-text_analysis_platform/
-├── app.py                     # Main Streamlit dashboard
-├── reporting.py         
-├── summarizer.py              # NLP Summarization models     
-├── validation.py              # Input data validation
-├── sentiment_analysis.ipynb
-├── assets/                    # Images for documentation
-├── requirements.txt           # Project dependencies
-└── topic_modeling.ipynb    
-```   
-    
+## ✨ Key Features
 
-# 🛠️ Installation & Setup
-Follow these steps to run the project locally:
+-   **🔍 Advanced Sentiment Analysis**: Detect emotional tone and sentiment shifts across large texts.
+-   **📝 Intelligent Summarization**: Hybrid summarization logic to condense content without losing meaning.
+-   **🕸️ Topic Vocabulary Clusters**: Visualize word relationships with stunning word clouds and network graphs.
+-   **📊 Interactive Dashboard**: A highly responsive, "Cyber-Glass" aesthetic UI built with Next.js and Tailwind CSS.
+-   **🔧 Robust API**: High-performance backend powered by FastAPI and optimized NLP libraries.
 
-### 1. Clone the repository
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+-   **Framework**: Next.js 14
+-   **Language**: TypeScript
+-   **Styling**: Tailwind CSS, Shadcn/UI
+-   **Icons**: Lucide React
+-   **Visualizations**: Recharts, Cobe
+
+### Backend
+-   **Framework**: FastAPI
+-   **Language**: Python 3.11+
+-   **NLP**: NLTK, Scikit-learn, Transformers
+-   **Server**: Uvicorn
+
+---
+
+## 🏁 Getting Started
+
+Follow these instructions to set up the project locally on your machine.
+
+### Prerequisites
+
+Ensure you have the following installed:
+-   [Python 3.11+](https://www.python.org/downloads/)
+-   [Node.js 18+](https://nodejs.org/en/)
+-   [Git](https://git-scm.com/)
+
+### 1. Clone the Repository
+
 ```bash
-git clone [https://github.com/springboard5678x/Dynamic-Text-Analysis-System_Batch_27_nov.git](https://github.com/springboard5678x/Dynamic-Text-Analysis-System_Batch_27_nov.git)
+git clone --single-branch -b debraj_mistry https://github.com/springboard5678x/Dynamic-Text-Analysis-System_Batch_27_nov
 cd Dynamic-Text-Analysis-System_Batch_27_nov
 ```
-2. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-3. Download NLP Models
-```bash
-# Download spaCy model
-python -m spacy download en_core_web_sm
-# Download nltk data
-python -c "import nltk; nltk.download('stopwords')"
-```
 
-▶️ Run the App
-Launch the dashboard using Streamlit:
-```bash
-streamlit run app.py
-```
-## 🤝 Contributing
-1. Fork the Project.
-2. Create a Feature Branch:
-```bash
-git checkout -b feature/AmazingFeature
-```
-3. Commit your Changes:
-```bash
-git commit -m 'Add some AmazingFeature'
-```
-4. Push to the Branch:
-```bash
-git push origin feature/AmazingFeature
-```
-5. Open a Pull Request.
+### 2. Backend Setup
 
-## 📝 License
-This project is licensed under the MIT License — see the LICENSE file for details.
+Setting up the Python environment and installing dependencies.
+
+1.  **Navigate to the backend directory:**
+    ```bash
+    cd backend
+    ```
+
+2.  **Create a virtual environment (optional but recommended):**
+    ```bash
+    python -m venv venv
+    
+    # Windows
+    venv\Scripts\activate
+    
+    # macOS/Linux
+    source venv/bin/activate
+    ```
+
+3.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Run the Backend Server:**
+    ```bash
+    uvicorn main:app --reload --port 8000
+    ```
+    The API will be live at `http://localhost:8000`.
+    *API Documentation is available at `http://localhost:8000/docs`.*
+
+### 3. Frontend Setup
+
+Setting up the Next.js client.
+
+1.  **Open a new terminal and navigate to the frontend directory:**
+    ```bash
+    cd frontend
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3.  **Run the Development Server:**
+    ```bash
+    npm run dev
+    ```
+    The application will start on port **9002**.
+    
+    > **Note:** The default port is configured to `9002` to avoid conflicts.
+
+4.  **Open your browser:**
+    Visit [http://localhost:9002](http://localhost:9002) to see the app in action!
+
+---
+
+## 👨‍💻 Creator
+
+**Debraj Mistry**
+
+A passionate developer and innovator focused on building immersive digital experiences and advanced AI solutions.
+
+-   **Portfolio**: [Visit Website](https://debrajmistry.vercel.app/)
+-   **GitHub**: [@DMHACKERZ](https://github.com/DMHACKERZ)
+-   **LinkedIn**: [Debraj Mistry](https://www.linkedin.com/in/debraj-mistry/)
+-   **Email**: [debrajmistryofficial@gmail.com](mailto:debrajmistryofficial@gmail.com)
+
+---
+
+## 🎓 Acknowledgment
+
+This project was developed as part of my **AI Internship** under the **Infosys Springboard program**. It was built under the valuable mentorship and guidance of **Surbhi Ma'am**, whose support and insights were instrumental throughout the development process. I am sincerely grateful for this opportunity, as the internship provided me with significant learning experiences and practical exposure in the field of artificial intelligence.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

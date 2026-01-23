@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+python-multipart
+torch
+transformers
+gensim
+scikit-learn
+pandas
+numpy
+nltk
+sentencepiece
+protobuf
+python-docx
+pypdf
+sumy
+langdetect
+reportlab
