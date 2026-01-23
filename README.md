@@ -139,6 +139,17 @@ A passionate developer and innovator focused on building immersive digital exper
 
 ---
 
+## ⚠️ Note on Processing Time
+
+Deep learning and advanced NLP analysis are computationally intensive tasks. The time required to process your data is **directly proportional to the size of the dataset** and the performance of your hardware.
+
+-   **Small Datasets**: Results are typically available within 10 minutes.
+-   **Large Datasets**: For extensive documents or batch processing, analysis may take **30 minutes or more**.
+
+Please **do not panic** if the process seems to take longer than expected. This duration ensures that the complex algorithms (sentiment analysis, summarization, entity recognition) have sufficient time to generate high-accuracy insights. The improved quality of the results is worth the wait!
+
+---
+
 ## 🎓 Acknowledgment
 
 This project was developed as part of my **AI Internship** under the **Infosys Springboard program**. It was built under the valuable mentorship and guidance of **Surbhi Ma'am**, whose support and insights were instrumental throughout the development process. I am sincerely grateful for this opportunity, as the internship provided me with significant learning experiences and practical exposure in the field of artificial intelligence.
