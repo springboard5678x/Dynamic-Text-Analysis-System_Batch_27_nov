@@ -9,7 +9,7 @@
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB)](https://www.python.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC)](https://tailwindcss.com/)
 
-[**View Portfolio**](https://debrajmistry.vercel.app/)
+[**View Portfolio**](https://dm-portfolio17.vercel.app/)
 </div>
 
 ---
@@ -132,7 +132,7 @@ Setting up the Next.js client.
 
 A passionate developer and innovator focused on building immersive digital experiences and advanced AI solutions.
 
--   **Portfolio**: [Visit Website](https://debrajmistry.vercel.app/)
+-   **Portfolio**: [Visit Website](https://dm-portfolio17.vercel.app/)
 -   **GitHub**: [@DMHACKERZ](https://github.com/DMHACKERZ)
 -   **LinkedIn**: [Debraj Mistry](https://www.linkedin.com/in/debraj-mistry/)
 -   **Email**: [debrajmistryofficial@gmail.com](mailto:debrajmistryofficial@gmail.com)
