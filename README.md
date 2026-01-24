@@ -35,6 +35,9 @@ pip install -r requirements.txt
    - `nmf_25.pkl`
    - `bart-cnn-finetuned/` folder
 
+### Trained Models 
+   - https://drive.google.com/drive/folders/16mjkt9IuoO7ZtvX1Q3zDZ_24i4sk0D7-?usp=sharing
+
 4. Run the FastAPI server:
 ```bash
 python main.py
