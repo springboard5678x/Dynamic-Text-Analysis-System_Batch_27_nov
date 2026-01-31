@@ -96,7 +96,7 @@ Ensure the following are installed:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/narrative-nexus.git
+   git clone https://github.com/mohitsingh021/narrative-nexus.git
    ```
 
 2. **Navigate to the project directory**
