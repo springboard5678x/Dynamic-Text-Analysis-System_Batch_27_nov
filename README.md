@@ -96,7 +96,7 @@ Ensure the following are installed:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/mohitsingh021/narrative-nexus.git
+   git clone https://github.com/springboard5678x/Dynamic-Text-Analysis-System_Batch_27_nov.git
    ```
 
 2. **Navigate to the project directory**
